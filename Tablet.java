@@ -25,14 +25,14 @@ public class Tablet {
     /**
      * Devuelve capacidad de memoria RAM
      */
-    public int getram() {
+    public int getRam() {
         return ram;
     }
     
     /**
      * Devuelve si tiene HDMI
      */
-    public boolean gethdmi() {
+    public boolean getHdmi() {
         return hdmi;
     }
     
@@ -46,14 +46,13 @@ public class Tablet {
     /**
      * Cambia el el tamaño de la RAM
      */
-    public int añadirModuloRam() {
-        int añadirModuloRam = 2;
-        añadirModuloRam = ram + añadirModuloRam;
-        return añadirModuloRam;
+    public int añadirModuloRam(int añadir) {
+        ram = ram + añadir;
+        return ram;
     }
     
     public boolean conectarAlTelevisor() {   
-        if (hdmi == true) {
+        if (hdmi) {
             hdmi = false; 
         }
         else {
@@ -66,15 +65,22 @@ public class Tablet {
      * Imprime lo detalles de la tablet 
      */
     public void imprimeDetalles() {
-        String hdmi = "Si";
-        System.out.println("Marca y Modelo: " + marcaModelo + " | " + "RAM: " + ram + " GB " + " | " + "HDMI: " + hdmi);
+        if (hdmi) {
+            System.out.println("Marca y Modelo: " + marcaModelo + " | " + "RAM: " + ram + " GB " + " | " + "HDMI: " + "si");
+        }
+        else {
+            System.out.println("Marca y Modelo: " + marcaModelo + " | " + "RAM: " + ram + " GB " + " | " + "HDMI: " + "no");
+        }
     }
     
     /**
      * Devuelve la marca y modelo
      */
     public String getmostrarDetalles() {
-        String hdmi = "Si";
+        String hdmiSiNo = "no";
+        if (hdmi) {
+            hdmiSiNo = "si";
+        }
         return "Marca y Modelo: " + marcaModelo + " | " + "RAM: " + ram + " GB " + " | " + "HDMI: " + hdmi;
     }
     
